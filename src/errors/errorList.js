@@ -5,8 +5,16 @@ function invalidInput(message){
     }
 }
 
+function conflictError(item = "item"){
+    return {
+        type:"conflict",
+        message:`${item} alredy exists`
+    }
+}
+
 const errorList = {
-    invalidInput
+    invalidInput,
+    conflictError
 }
 
 export default errorList

@@ -7,6 +7,9 @@ export default function errorHandler(error,req,res,next){
         case "invalidInput":
             status = httpStatus.UNPROCESSABLE_ENTITY
             break
+        case "conflict":
+            status = httpStatus.CONFLICT
+            break
     }
 
     res.status(status).send(error.message)
