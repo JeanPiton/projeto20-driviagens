@@ -10,6 +10,8 @@ export default function errorHandler(error,req,res,next){
         case "conflict":
             status = httpStatus.CONFLICT
             break
+        case "notFound":
+            status = httpStatus.NOT_FOUND
     }
 
     res.status(status).send(error.message)

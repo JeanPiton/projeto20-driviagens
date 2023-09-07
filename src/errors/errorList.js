@@ -5,16 +5,24 @@ function invalidInput(message){
     }
 }
 
-function conflictError(item = "item"){
+function conflictError(item = "item", message = "alredy exists"){
     return {
         type:"conflict",
-        message:`${item} alredy exists`
+        message:`${item} ${message}`
+    }
+}
+
+function notFoundError(item){
+    return {
+        type:"notFound",
+        message:`${item} not found`
     }
 }
 
 const errorList = {
     invalidInput,
-    conflictError
+    conflictError,
+    notFoundError
 }
 
 export default errorList

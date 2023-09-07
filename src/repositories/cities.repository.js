@@ -8,8 +8,13 @@ async function findCityByName(name){
     return db.query(`SELECT name FROM cities WHERE name = $1`,[name])
 }
 
+async function findCityById(id){
+    return db.query(`SELECT * FROM cities WHERE id = $1`,[id])
+}
+
 const citiesRepository = {
     createCity,
-    findCityByName
+    findCityByName,
+    findCityById
 }
 export default citiesRepository
