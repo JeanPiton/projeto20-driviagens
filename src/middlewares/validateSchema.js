@@ -24,3 +24,15 @@ export function validateParamSchema(schema){
         next()
     }
 }
+
+export function validateQuerySchema(schema){
+    return (req,res,next)=>{
+        const validation = schema.validate(req.query,{abortEarly:false})
+
+        if(validation.error){
+            const error = validation.error.details.map(detail=>detail.message)
+            throw errorList.invalidInput(error)
+        }
+        next()
+    }
+}

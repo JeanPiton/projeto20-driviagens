@@ -12,6 +12,10 @@ export default function errorHandler(error,req,res,next){
             break
         case "notFound":
             status = httpStatus.NOT_FOUND
+            break
+        case "badRequest":
+            status = httpStatus.BAD_REQUEST
+            break
     }
 
     res.status(status).send(error.message)

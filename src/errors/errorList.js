@@ -19,10 +19,18 @@ function notFoundError(item){
     }
 }
 
+function badRequest(message){
+    return{
+        type:"badRequest",
+        message
+    }
+}
+
 const errorList = {
     invalidInput,
     conflictError,
-    notFoundError
+    notFoundError,
+    badRequest
 }
 
 export default errorList

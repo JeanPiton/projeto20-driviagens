@@ -13,7 +13,19 @@ async function createFlight(origin,destination,date){
     return flightsRepository.createFlight(origin,destination,date)
 }
 
+async function getFlights(small,big,origin,destination){
+    if(big != small){
+        if(big == null) throw errorList.invalidInput("bigger-date is required with smaller-date")
+        if(small == null) throw errorList.invalidInput("smaller-date is required with bigger-date")
+    }
+    if(big!=null){
+        if(new Date(big) < new Date(small)) throw errorList.badRequest("smaller-date can't be bigger than bigger-date")
+    }
+    return flightsRepository.getFlights(small,big,origin,destination)
+}
+
 const flightsServices = {
-    createFlight
+    createFlight,
+    getFlights
 }
 export default flightsServices
