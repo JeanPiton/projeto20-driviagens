@@ -26,11 +26,19 @@ function badRequest(message){
     }
 }
 
+function tooManyResults(){
+    return{
+        type:"tooManyResults",
+        message:"Too many results"
+    }
+}
+
 const errorList = {
     invalidInput,
     conflictError,
     notFoundError,
-    badRequest
+    badRequest,
+    tooManyResults
 }
 
 export default errorList

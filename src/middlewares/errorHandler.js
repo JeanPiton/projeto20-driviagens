@@ -16,6 +16,8 @@ export default function errorHandler(error,req,res,next){
         case "badRequest":
             status = httpStatus.BAD_REQUEST
             break
+        case "tooManyResults":
+            status = httpStatus.INTERNAL_SERVER_ERROR
     }
 
     res.status(status).send(error.message)

@@ -6,3 +6,9 @@ export async function createPassenger(req,res){
     await passengerServices.createPassenger(firstName,lastName)
     res.sendStatus(httpStatus.CREATED)
 }
+
+export async function getPassengerTravels(req,res){
+    const {name} = req.query
+    const result = await passengerServices.getPassengerTravels(name)
+    res.status(httpStatus.OK).send(result)
+}
