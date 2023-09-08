@@ -12,6 +12,7 @@ async function getPassengerTravels(name){
 }
 
 const passengerServices = {
-    createPassenger
+    createPassenger,
+    getPassengerTravels
 }
 export default passengerServices
