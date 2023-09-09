@@ -12,9 +12,9 @@ async function getPassengerTravels(name){
     return db.query(`SELECT CONCAT_WS(' ',passengers."firstName",passengers."lastName") AS passenger, COUNT(travels.id) AS travels 
 	FROM passengers
 	LEFT JOIN travels ON travels."passengerId" = passengers.id
-	WHERE concat_ws(' ',passengers."firstName",passengers."lastName") ILIKE '%$1%'
+	WHERE concat_ws(' ',passengers."firstName",passengers."lastName") ILIKE $1
 	GROUP BY passengers.id
-	ORDER BY COUNT(travels.id) DESC`,[name])
+	ORDER BY COUNT(travels.id) DESC`,['%'+name+'%'])
 }
 
 const passengerRepository = {

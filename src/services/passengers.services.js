@@ -6,7 +6,8 @@ async function createPassenger(firstName,lastName){
 }
 
 async function getPassengerTravels(name){
-    const {rows} = await getPassengerTravels(name==undefined?'':name)
+    name = name==undefined?'':name
+    const {rows} = await passengerRepository.getPassengerTravels(name)
     if(rows.length>10) throw errorList.tooManyResults()
     return rows
 }
